@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Кружок · Поступление в СПбГУ по олимпиадам 2025</title>
+<title>Кружок · Поступление по олимпиадам 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -132,6 +132,40 @@ body {
   flex-shrink: 0;
 }
 
+/* ===== UNI SWITCHER ===== */
+.uni-switcher {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.uni-btn {
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 2.5px solid var(--gray200);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--gray700);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.uni-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.uni-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
 /* ===== CONTROLS ===== */
 .controls {
   max-width: 1100px;
@@ -257,51 +291,50 @@ select:focus { border-color: var(--blue); }
 }
 
 .stat-num {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 900;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .stat-label {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--gray500);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 /* ===== LEGEND ===== */
 .legend {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding: 14px 18px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
   background: var(--white);
+  border-radius: var(--radius-sm);
   border: 2px solid var(--gray200);
-  border-radius: var(--radius);
-  margin-bottom: 24px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--gray700);
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* ===== SECTIONS ===== */
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .section-head {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
+  gap: 12px;
+  padding: 16px 20px;
   background: var(--white);
   border: 2px solid var(--gray200);
   border-radius: var(--radius);
   cursor: pointer;
-  user-select: none;
-  transition: border-color 0.15s;
+  transition: all 0.15s;
 }
 
 .section-head:hover {
@@ -309,66 +342,63 @@ select:focus { border-color: var(--blue); }
 }
 
 .section-code {
-  padding: 4px 10px;
-  border-radius: 8px;
-  background: var(--green);
-  color: white;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 800;
+  color: var(--blue);
+  background: var(--blue-light);
+  padding: 4px 10px;
+  border-radius: 6px;
   white-space: nowrap;
-  letter-spacing: 0.02em;
 }
 
 .section-name {
+  font-weight: 800;
+  font-size: 0.95rem;
   flex: 1;
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: -0.01em;
 }
 
 .section-cnt {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--gray500);
-  background: var(--gray100);
-  padding: 4px 10px;
-  border-radius: 10px;
+  white-space: nowrap;
 }
 
 .section-arrow {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: var(--gray500);
-  transition: transform 0.25s;
+  transition: transform 0.2s;
 }
 
-.section-arrow.open { transform: rotate(180deg); }
-
-.section-body {
-  padding: 8px 0 0;
+.section-arrow.open {
+  transform: rotate(180deg);
 }
 
 /* ===== PROGRAM CARDS ===== */
+.section-body {
+  padding: 8px 0 0 0;
+}
+
 .prog-card {
   background: var(--white);
   border: 2px solid var(--gray200);
   border-radius: var(--radius);
   margin-bottom: 8px;
   overflow: hidden;
-  transition: border-color 0.15s;
 }
-
-.prog-card:hover { border-color: var(--gray300); }
 
 .prog-head {
-  padding: 14px 18px;
-  cursor: pointer;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  transition: background 0.1s;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
 }
 
-.prog-head:hover { background: var(--gray100); }
+.prog-head:hover {
+  background: var(--gray100);
+}
 
 .prog-title {
   flex: 1;
@@ -377,161 +407,157 @@ select:focus { border-color: var(--blue); }
 .prog-name {
   font-weight: 800;
   font-size: 0.92rem;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .prog-code {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--gray500);
   margin-top: 2px;
 }
 
 .prog-tag {
-  padding: 4px 12px;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  background: var(--blue-light);
-  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gray500);
+  background: var(--gray100);
+  padding: 4px 10px;
+  border-radius: 6px;
   white-space: nowrap;
-  align-self: center;
 }
 
 .prog-arrow {
+  font-size: 0.7rem;
   color: var(--gray500);
-  align-self: center;
-  transition: transform 0.25s;
-  font-size: 0.9rem;
+  transition: transform 0.2s;
 }
 
-.prog-arrow.open { transform: rotate(180deg); }
+.prog-arrow.open {
+  transform: rotate(180deg);
+}
 
 .prog-body {
   display: none;
-  padding: 0 18px 16px;
+  padding: 0 20px 20px;
+  border-top: 1.5px solid var(--gray200);
 }
 
-.prog-body.open { display: block; }
+.prog-body.open {
+  display: block;
+}
 
 /* ===== EXAMS ===== */
 .sub-title {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: var(--gray500);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
-  margin-top: 14px;
+  letter-spacing: 0.05em;
+  margin: 16px 0 8px;
 }
-
-.sub-title:first-child { margin-top: 0; }
 
 .exam-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 5px 0;
-  font-size: 0.88rem;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--gray200);
 }
 
 .exam-num {
   width: 26px;
   height: 26px;
-  border-radius: 8px;
-  background: var(--green);
-  color: white;
+  border-radius: 50%;
+  background: var(--gray100);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
+  color: var(--gray700);
   flex-shrink: 0;
 }
 
 .exam-subj {
   flex: 1;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .exam-min {
+  font-size: 0.85rem;
   font-weight: 800;
-  font-size: 0.82rem;
   color: var(--blue);
-  min-width: 50px;
-  text-align: right;
 }
 
 /* ===== OLYMP TABLE ===== */
 .olymp-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 0.82rem;
-  margin-top: 4px;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-top: 8px;
 }
 
 .olymp-table th {
   text-align: left;
   padding: 8px 8px;
+  background: var(--gray100);
   font-weight: 800;
-  color: var(--gray500);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 2px solid var(--gray200);
+  color: var(--gray500);
 }
 
 .olymp-table td {
-  padding: 7px 8px;
-  border-bottom: 1px solid var(--gray100);
-  vertical-align: top;
+  padding: 8px 8px;
+  border-bottom: 1px solid var(--gray200);
   font-weight: 600;
+  vertical-align: top;
 }
 
-.olymp-table tr:last-child td { border-bottom: none; }
-
-/* Level badges */
+/* ===== BADGES ===== */
 .lvl {
   display: inline-block;
-  padding: 2px 9px;
-  border-radius: 7px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.lvl-1 { background: #FFF7E6; color: #D4880F; }
+.lvl-12 { background: #E6F4FF; color: #0068BF; }
+.lvl-13 { background: var(--green-light); color: #0D9B3F; }
+.lvl-2 { background: #F3E8FF; color: #8B3FC7; }
+.lvl-23 { background: #FFE6EE; color: #C73F6D; }
+.lvl-3 { background: var(--gray100); color: var(--gray700); }
+
+.right-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
   font-size: 0.72rem;
   font-weight: 800;
   white-space: nowrap;
 }
 
-.lvl-1 { background: var(--green-light); color: #0D9B3F; }
-.lvl-12 { background: var(--blue-light); color: #0068BF; }
-.lvl-13 { background: var(--purple-light); color: #8B3FC7; }
-.lvl-2 { background: #E6F4FF; color: #0068BF; }
-.lvl-23 { background: #FFF3E0; color: #C67700; }
-.lvl-3 { background: #FFF8E1; color: #B8860B; }
-
-/* Right badges */
-.right-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 8px;
-  font-size: 0.73rem;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
 .right-bvi {
-  background: var(--green);
-  color: white;
+  background: var(--green-light);
+  color: #0D9B3F;
+  border: 1.5px solid #B8EDCB;
 }
 
 .right-100 {
-  background: var(--blue);
-  color: white;
+  background: var(--blue-light);
+  color: #0068BF;
+  border: 1.5px solid #B0D9FF;
 }
 
 .right-none {
   background: var(--gray100);
-  color: var(--gray500);
+  color: var(--gray700);
 }
 
 /* ===== NO RESULTS ===== */
@@ -540,11 +566,12 @@ select:focus { border-color: var(--blue); }
   padding: 60px 20px;
   color: var(--gray500);
   font-weight: 700;
+  font-size: 1rem;
 }
 
 .no-results span {
-  font-size: 2.5rem;
   display: block;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
@@ -576,6 +603,8 @@ select:focus { border-color: var(--blue); }
   .olymp-table th, .olymp-table td { padding: 5px 5px; }
   .hero h1 { font-size: 1.4rem; }
   .section-head { flex-wrap: wrap; }
+  .uni-switcher { gap: 6px; }
+  .uni-btn { padding: 8px 16px; font-size: 0.82rem; }
 }
 </style>
 </head>
@@ -589,11 +618,15 @@ select:focus { border-color: var(--blue); }
     <span class="logo-text">кружок</span>
     <span class="logo-star">✳</span>
   </div>
-  <h1>поступление в спбгу<br>по олимпиадам 2025</h1>
-  <p>Полный справочник олимпиад и особых прав. Результаты за 2020/21 – 2024/25 уч. годы (10–11 класс).</p>
+  <h1 id="heroTitle">поступление по олимпиадам 2025</h1>
+  <p id="heroDesc">Полный справочник олимпиад и особых прав для поступления в ведущие вузы России.</p>
   <div class="hero-badges">
     <div class="hero-badge"><div class="dot" style="background:var(--green)"></div> БВИ — без вступительных</div>
     <div class="hero-badge blue"><div class="dot" style="background:var(--blue)"></div> 100 баллов за предмет</div>
+  </div>
+  <div class="uni-switcher" id="uniSwitcher">
+    <button class="uni-btn active" data-uni="spbgu">СПбГУ</button>
+    <button class="uni-btn" data-uni="mgu">МГУ</button>
   </div>
 </div>
 
@@ -619,7 +652,7 @@ select:focus { border-color: var(--blue); }
 <div class="content" id="content"></div>
 
 <script>
-const DATA = [
+const DATA_SPBGU = [
   {
     area: "01.00.00", areaName: "Математика и механика",
     programs: [
@@ -746,326 +779,737 @@ const DATA = [
       }
     ]
   },
+  {area:"04.00.00",areaName:"Химия",programs:[{code:"04.03.01",name:"Химия",fullName:"Химия («Перевод научно-тех. литературы» / «Учитель химии»)",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Математика / Физика (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"Химия",subj:"Химия",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},{level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},{level:"I",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"БВИ"}]},{code:"04.03.02",name:"Химия, физика и механика материалов",fullName:"Химическое материаловедение",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Математика / Физика (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"БВИ"},{level:"III",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"05.00.00",areaName:"Науки о Земле",programs:[{code:"05.03.01",name:"Геология",fullName:"Геология",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / География / Химия / Информатика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–III",profile:"Мат. / Геология / Физика / География / Химия / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]},{code:"05.03.02",name:"География",fullName:"География («Учитель географии»)",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"География",min:75},{n:2,subject:"Мат. / Биология / Инф. / Физика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–III",profile:"География / Математика / Биология / Информатика / Физика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]},{code:"05.03.06",name:"Экология и природопользование",fullName:"Экология и природопользование",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"География",min:75},{n:2,subject:"Мат. / Хим. / Био. / Инф. / Физика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–III",profile:"География / Экология / Математика / Химия / Биология / Информатика / Физика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]}]},
+  {area:"06.00.00",areaName:"Биологические науки",programs:[{code:"06.03.01",name:"Биология",fullName:"Биология / Биоинженерные технологии",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Химия / Математика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"Биология (Олимпиада СПбГУ / Ломоносов)",subj:"Биология",who:"Победитель",right:"БВИ"},{level:"I",profile:"Химия (СПбГУ / Ломоносов)",subj:"Химия",who:"Победитель, призёр",right:"100 баллов"}]},{code:"06.03.02",name:"Почвоведение",fullName:"Почвоведение",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Геогр. / Инф. / Мат. / Химия",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–III",profile:"Биология / Экология",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},{level:"I–III",profile:"Мат. / Инф. / Геогр. / Химия",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ / 100"}]}]},
+  {area:"09.00.00",areaName:"Информатика и вычислительная техника",programs:[{code:"09.03.03",name:"Прикладная информатика",fullName:"Искусственный интеллект и наука о данных",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Информатика",min:75},{n:3,subject:"Русский язык",min:null}],olympiads:[{level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},{level:"I–II",profile:"Информатика / ИИ",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"}]},{code:"09.03.03",name:"Прикладная информатика",fullName:"Прикладная информатика в области искусств и гуманитарных наук",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Информатика",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Информатика / Математика",subj:"Инф. / Мат.",who:"Победитель, призёр",right:"БВИ"},{level:"III",profile:"Информатика / Математика",subj:"Инф. / Мат.",who:"Победитель, призёр",right:"100 баллов"}]},{code:"09.03.04",name:"Программная инженерия",fullName:"Программная инженерия",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:null},{n:2,subject:"Информатика",min:75},{n:3,subject:"Русский язык",min:null}],olympiads:[{level:"I–II",profile:"Информатика",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"}]}]},
+  {area:"27.00.00",areaName:"Управление в технических системах",programs:[{code:"27.03.03",name:"Системный анализ и управление",fullName:"Прикладные компьютерные технологии и ИИ",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / Информатика",min:75},{n:3,subject:"Русский язык",min:null}],olympiads:[{level:"I–III",profile:"Математика / Физика / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]}]},
+  {area:"31.00.00",areaName:"Клиническая медицина",programs:[{code:"31.05.01 / 31.05.03",name:"Лечебное дело / Стоматология",fullName:"Лечебное дело / Стоматология (специалитет)",form:"очная",level:"специалитет",exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Химия",min:75},{n:3,subject:"Русский язык",min:null}],olympiads:[{level:"I",profile:"Биология / Медицина / Химия",subj:"Биология / Химия",who:"Победитель, призёр",right:"БВИ"},{level:"II–III",profile:"Биология / Медицина / Химия",subj:"Биология / Химия",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"33.00.00",areaName:"Фармация",programs:[{code:"33.05.01",name:"Фармация",fullName:"Фармация (специалитет)",form:"очная",level:"специалитет",exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Биология",min:75},{n:3,subject:"Русский язык",min:null}],olympiads:[{level:"I",profile:"Химия / Биология / Медицина",subj:"Химия / Биология",who:"Победитель, призёр",right:"БВИ"},{level:"II–III",profile:"Химия / Биология / Медицина",subj:"Химия / Биология",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"37.00.00",areaName:"Психологические науки",programs:[{code:"37.03.01 / 37.05.01",name:"Психология / Клиническая психология",fullName:"Психология / Клиническая психология",form:"очная",level:"бакалавриат / специалитет",exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"Биология / Психология / Медицина",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"Биология / Психология / Медицина",subj:"Биология",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},{level:"I–III",profile:"Математика / Русский язык",subj:"Мат. / Рус.",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"38.00.00",areaName:"Экономика и управление",programs:[{code:"38.03.01",name:"Экономика",fullName:"Экономика / Экономико-мат. методы / Экономика Китая",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Обществозн. / Геогр. / Ист. / Англ. (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель",right:"БВИ"},{level:"I–II",profile:"Математика",subj:"Математика",who:"Призёр",right:"100 баллов"},{level:"I–II",profile:"Обществозн. / Экономика / Ин. язык / Геогр. / История",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}]},{code:"38.03.02",name:"Менеджмент",fullName:"Менеджмент («Бизнес-аналитик») / Международный менеджмент",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Обществозн. / Ист. / Англ. (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Математика / Обществозн. / Экономика / История / Ин. язык",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}]},{code:"38.03.05",name:"Бизнес-информатика",fullName:"Бизнес-информатика",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Инф. / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Мат. / Инф. / ИВТ / Экономика / Обществозн.",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}]}]},
+  {area:"39.00.00",areaName:"Социология и социальная работа",programs:[{code:"39.03.01",name:"Социология",fullName:"Социология / Прикладная социология",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"Обществознание",subj:"Обществознание",who:"Победитель",right:"БВИ"},{level:"I–III",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"}]}]},
+  {area:"40.00.00",areaName:"Юриспруденция",programs:[{code:"40.03.01",name:"Юриспруденция",fullName:"Юриспруденция (очная / с углублённым изучением китайского / налогового права)",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"История / Математика / Ин. язык (по выбору)",min:75}],olympiads:[{level:"I",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель",right:"БВИ"},{level:"I",profile:"Обществознание / Право",subj:"Обществознание",who:"Призёр",right:"100 баллов"},{level:"II",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов"},{level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}]}]},
+  {area:"41.00.00",areaName:"Политические науки и регионоведение",programs:[{code:"41.03.04",name:"Политология",fullName:"Политология / Россиеведение",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Обществозн. / Геогр.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"История / Обществознание",subj:"Ист. / Обществозн.",who:"Победитель, призёр",right:"БВИ"},{level:"I–II",profile:"Политология",subj:"Обществознание",who:"Победитель",right:"БВИ"}]},{code:"41.03.05",name:"Международные отношения",fullName:"Международные отношения",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Ин. язык / Геогр.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель",right:"БВИ"}]}]},
+  {area:"42.00.00",areaName:"СМИ и информационно-библиотечное дело",programs:[{code:"42.03.02",name:"Журналистика",fullName:"Журналистика / Международная журналистика",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Русский язык",min:75},{n:2,subject:"Лит. / Обществозн. / Ист. / Ин. язык",min:75},{n:3,subject:"Письменная работа: журналистика",min:75}],olympiads:[{level:"I–II",profile:"Обществозн. / Ист. / Ин. язык / Литература",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"},{level:"I",profile:"Журналистика",subj:"—",who:"Победитель, призёр",right:"БВИ"}]}]},
+  {area:"43.00.00",areaName:"Сервис и туризм",programs:[{code:"43.03.02",name:"Туризм",fullName:"Различные программы туризма",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Геогр. / Ин. язык",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Ист. / Геогр. / Ин. язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"},{level:"III",profile:"Ист. / Геогр. / Ин. язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"45.00.00",areaName:"Языкознание и литературоведение",programs:[{code:"45.03.01",name:"Филология",fullName:"Отечественная филология / Английский / Испанский / Немецкий / Французский / Классическая и др.",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Литература",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Иностранный язык (по выбору)",min:75}],olympiads:[{level:"I",profile:"Литература / Филология",subj:"Литература",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"Литература",subj:"Литература",who:"Победитель",right:"БВИ"},{level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель",right:"БВИ"},{level:"I–II",profile:"Ин. язык / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"}]},{code:"45.03.02",name:"Лингвистика",fullName:"Лингвистика (англ., прикладная, межкультурная и др.)",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Англ. / Ин. язык",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Литература",min:75}],olympiads:[{level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель",right:"БВИ"},{level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Призёр",right:"100 баллов"},{level:"II",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"},{level:"I–II",profile:"—",subj:"Рус. язык / Литература",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"46.00.00",areaName:"История и археология",programs:[{code:"46.03.01",name:"История",fullName:"История России / Всеобщая история / Археология",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Обществознание",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"История",subj:"История",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"История",subj:"История",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},{level:"III",profile:"История",subj:"История",who:"Победитель, призёр",right:"100 баллов"},{level:"I–III",profile:"Обществозн. / Русский язык",subj:"Обществозн. / Рус.",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"47.00.00",areaName:"Философия, этика и религиоведение",programs:[{code:"47.03.01",name:"Философия",fullName:"Философия / Религиоведение",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Ист. / Ин. язык",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–II",profile:"Обществозн. / Философия / Право",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},{level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель",right:"БВИ"}]}]},
+  {area:"50.00.00",areaName:"Искусствознание",programs:[{code:"50.03.03",name:"История искусств",fullName:"Теория и история искусств / Искусства и гуманитарные науки",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Ин. язык / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"История / Искусствознание / Искусство",subj:"История",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"История",subj:"История",who:"Победитель",right:"БВИ"}]}]},
+  {area:"51.00.00",areaName:"Культуроведение",programs:[{code:"51.03.01",name:"Культурология",fullName:"Культурология / Музеология",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Обществозн. / История",min:75},{n:2,subject:"Ист. / Ин. язык / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I",profile:"Обществозн. / Философия / Право",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"Обществозн.",subj:"Обществознание",who:"Победитель",right:"БВИ"}]}]},
+  {area:"58.00.00",areaName:"Востоковедение и африканистика",programs:[{code:"58.03.01",name:"Востоковедение и африканистика",fullName:"Арабистика, иранистика, китаистика, японистика, корееведение и др.",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"История",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Ин. язык (по выбору)",min:75}],olympiads:[{level:"I",profile:"История",subj:"История",who:"Победитель, призёр",right:"БВИ"},{level:"II",profile:"История",subj:"История",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},{level:"III",profile:"История",subj:"История",who:"Победитель, призёр",right:"100 баллов"},{level:"I–III",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"},{level:"I–II",profile:"—",subj:"Русский язык",who:"Победитель, призёр",right:"100 баллов"}]}]},
+  {area:"21.00.00",areaName:"Прикладная геология, горное дело",programs:[{code:"21.03.01 / 21.03.02",name:"Нефтегазовое дело / Землеустройство",fullName:"Нефтегазовая геология / Кадастр недвижимости",form:"очная",level:"бакалавриат",exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / Химия / Геогр. / Инф.",min:75},{n:3,subject:"Русский язык",min:75}],olympiads:[{level:"I–III",profile:"Мат. / Физика / Химия / Геогр. / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]}]}
+];
+
+const DATA_MGU = [
   {
-    area: "04.00.00", areaName: "Химия",
+    area: "МехМат", areaName: "Механико-математический факультет",
     programs: [
-      {code:"04.03.01",name:"Химия",fullName:"Химия («Перевод научно-тех. литературы» / «Учитель химии»)",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Математика / Физика (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Фундаментальные математика и механика",fullName:"Фундаментальные математика и механика",form:"очная",level:"специалитет",exams:[],
         olympiads:[
-          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"Химия",subj:"Химия",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},
-          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"БВИ"}
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр (Московская, Ломоносов, Покори Воробьёвы горы!)",right:"БВИ"},
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель (Высшая проба, СПбГУ, СПб олимпиада, Турнир городов)",right:"БВИ"},
+          {level:"I",profile:"Математика",subj:"Математика",who:"Призёр (Высшая проба, СПбГУ, СПб олимпиада, Турнир городов)",right:"100 баллов ДВИ + 100 ЕГЭ"},
+          {level:"II",profile:"Математика",subj:"Математика",who:"Победитель, призёр (*все олимпиады II ур.)",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ЕГЭ физика"}
         ]
       },
-      {code:"04.03.02",name:"Химия, физика и механика материалов",fullName:"Химическое материаловедение",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Математика / Физика (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Механика и математическое моделирование",fullName:"Механика и математическое моделирование",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"БВИ"},
-          {level:"III",profile:"Химия",subj:"Химия",who:"Победитель, призёр",right:"100 баллов"}
-        ]
-      }
-    ]
-  },
-  {
-    area: "05.00.00", areaName: "Науки о Земле",
-    programs: [
-      {code:"05.03.01",name:"Геология",fullName:"Геология",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / География / Химия / Информатика",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[{level:"I–III",profile:"Мат. / Геология / Физика / География / Химия / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]
-      },
-      {code:"05.03.02",name:"География",fullName:"География («Учитель географии»)",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"География",min:75},{n:2,subject:"Мат. / Биология / Инф. / Физика",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[{level:"I–III",profile:"География / Математика / Биология / Информатика / Физика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]
-      },
-      {code:"05.03.06",name:"Экология и природопользование",fullName:"Экология и природопользование",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"География",min:75},{n:2,subject:"Мат. / Хим. / Био. / Инф. / Физика",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[{level:"I–III",profile:"География / Экология / Математика / Химия / Биология / Информатика / Физика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]
-      }
-    ]
-  },
-  {
-    area: "06.00.00", areaName: "Биологические науки",
-    programs: [
-      {code:"06.03.01",name:"Биология",fullName:"Биология / Биоинженерные технологии",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Химия / Математика",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[
-          {level:"I",profile:"Биология (Олимпиада СПбГУ / Ломоносов)",subj:"Биология",who:"Победитель",right:"БВИ"},
-          {level:"I",profile:"Химия (СПбГУ / Ломоносов)",subj:"Химия",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"II",profile:"Математика и механика (Ломоносов)",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"}
         ]
       },
-      {code:"06.03.02",name:"Почвоведение",fullName:"Почвоведение",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Геогр. / Инф. / Мат. / Химия",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Робототехника",fullName:"Робототехника",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–III",profile:"Биология / Экология",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I–III",profile:"Мат. / Инф. / Геогр. / Химия",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ / 100"}
+          {level:"II",profile:"Робототехника (Ломоносов)",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"}
         ]
       }
     ]
   },
   {
-    area: "09.00.00", areaName: "Информатика и вычислительная техника",
+    area: "ВМК", areaName: "Факультет вычислительной математики и кибернетики",
     programs: [
-      {code:"09.03.03",name:"Прикладная информатика",fullName:"Искусственный интеллект и наука о данных",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Информатика",min:75},{n:3,subject:"Русский язык",min:null}],
+      {code:"—",name:"Прикладная математика и информатика",fullName:"Прикладная математика и информатика",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I–II",profile:"Информатика / ИИ",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"}
+          {level:"I",profile:"Математика (Московская, Ломоносов, Покори Воробьёвы горы!)",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Математика (Высшая проба, СПбГУ, СПб олимпиада, Турнир городов)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Информатика (Московская)",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Информатика (*все I ур.)",subj:"Информатика",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"II",profile:"Информатика",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Робототехника (Ломоносов)",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"09.03.03",name:"Прикладная информатика",fullName:"Прикладная информатика в области искусств и гуманитарных наук",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Информатика",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Фундаментальная информатика и ИТ",fullName:"Фундаментальная информатика и информационные технологии",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Информатика / Математика",subj:"Инф. / Мат.",who:"Победитель, призёр",right:"БВИ"},
-          {level:"III",profile:"Информатика / Математика",subj:"Инф. / Мат.",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Информатика",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Робототехника (Ломоносов)",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Физфак", areaName: "Физический факультет",
+    programs: [
+      {code:"—",name:"Фундаментальная и прикладная физика",fullName:"Фундаментальная и прикладная физика",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Физика",subj:"Физика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Робототехника (Ломоносов)",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Информатика",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Астрономия",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"09.03.04",name:"Программная инженерия",fullName:"Программная инженерия",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:null},{n:2,subject:"Информатика",min:75},{n:3,subject:"Русский язык",min:null}],
-        olympiads:[{level:"I–II",profile:"Информатика",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"}]
-      }
-    ]
-  },
-  {
-    area: "27.00.00", areaName: "Управление в технических системах",
-    programs: [
-      {code:"27.03.03",name:"Системный анализ и управление",fullName:"Прикладные компьютерные технологии и ИИ",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / Информатика",min:75},{n:3,subject:"Русский язык",min:null}],
+      {code:"—",name:"Астрономия",fullName:"Астрономия",form:"очная",level:"специалитет",exams:[],
         olympiads:[
-          {level:"I–III",profile:"Математика / Физика / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}
+          {level:"I",profile:"Астрономия",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Астрономия",subj:"Физика",who:"Победитель → 100 ДВИ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"I–II",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "31.00.00", areaName: "Клиническая медицина",
+    area: "Химфак", areaName: "Химический факультет",
     programs: [
-      {code:"31.05.01 / 31.05.03",name:"Лечебное дело / Стоматология",fullName:"Лечебное дело / Стоматология (специалитет)",form:"очная",level:"специалитет",
-        exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Химия",min:75},{n:3,subject:"Русский язык",min:null}],
+      {code:"—",name:"Фундаментальная и прикладная химия",fullName:"Фундаментальная и прикладная химия",form:"очная",level:"специалитет",exams:[],
         olympiads:[
-          {level:"I",profile:"Биология / Медицина / Химия",subj:"Биология / Химия",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II–III",profile:"Биология / Медицина / Химия",subj:"Биология / Химия",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I",profile:"Химия (Менделеевская)",subj:"Химия",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Химия (Ломоносов)",subj:"Химия",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Химия",subj:"Химия",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Высокие технологии (Ломоносов)",subj:"Химия",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Физика",subj:"Физика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "33.00.00", areaName: "Фармация",
+    area: "Биофак", areaName: "Биологический факультет",
     programs: [
-      {code:"33.05.01",name:"Фармация",fullName:"Фармация (специалитет)",form:"очная",level:"специалитет",
-        exams:[{n:1,subject:"Химия",min:75},{n:2,subject:"Биология",min:75},{n:3,subject:"Русский язык",min:null}],
+      {code:"—",name:"Биология (Физ.-хим. биология. Общая биология)",fullName:"Фундаментальная и прикладная биология (Физико-химическая биология. Общая биология)",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"Химия / Биология / Медицина",subj:"Химия / Биология",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II–III",profile:"Химия / Биология / Медицина",subj:"Химия / Биология",who:"Победитель, призёр",right:"100 баллов"}
-        ]
-      }
-    ]
-  },
-  {
-    area: "37.00.00", areaName: "Психологические науки",
-    programs: [
-      {code:"37.03.01 / 37.05.01",name:"Психология / Клиническая психология",fullName:"Психология / Клиническая психология",form:"очная",level:"бакалавриат / специалитет",
-        exams:[{n:1,subject:"Биология",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[
-          {level:"I",profile:"Биология / Психология / Медицина",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"Биология / Психология / Медицина",subj:"Биология",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},
-          {level:"I–III",profile:"Математика / Русский язык",subj:"Мат. / Рус.",who:"Победитель, призёр",right:"100 баллов"}
-        ]
-      }
-    ]
-  },
-  {
-    area: "38.00.00", areaName: "Экономика и управление",
-    programs: [
-      {code:"38.03.01",name:"Экономика",fullName:"Экономика / Экономико-мат. методы / Экономика Китая",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Обществозн. / Геогр. / Ист. / Англ. (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[
-          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель",right:"БВИ"},
-          {level:"I–II",profile:"Математика",subj:"Математика",who:"Призёр",right:"100 баллов"},
-          {level:"I–II",profile:"Обществозн. / Экономика / Ин. язык / Геогр. / История",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}
+          {level:"I",profile:"Биология",subj:"Биология",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Математика (конкретные олимпиады)",subj:"Математика",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Генетика (биология)",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"III",profile:"Генетика (биол. науки)",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"38.03.02",name:"Менеджмент",fullName:"Менеджмент («Бизнес-аналитик») / Международный менеджмент",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Обществозн. / Ист. / Англ. (по выбору)",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Биология (Биоинженерия. Биофизика)",fullName:"Фундаментальная и прикладная биология (Биоинженерия и биотехнология. Биофизика)",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Математика / Обществозн. / Экономика / История / Ин. язык",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I",profile:"Математика (конкретные олимпиады)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Генетика",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"III",profile:"Генетика (биол. науки)",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"38.03.05",name:"Бизнес-информатика",fullName:"Бизнес-информатика",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Инф. / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Экология и природопользование",fullName:"Экология и природопользование",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Мат. / Инф. / ИВТ / Экономика / Обществозн.",subj:"соотв. предмет",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Экология (биол. науки, науки о земле)",subj:"Биология",who:"Победитель",right:"БВИ"},
+          {level:"I",profile:"Математика (конкретные олимпиады)",subj:"Математика",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Генетика",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"III",profile:"Генетика (биол. науки)",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "39.00.00", areaName: "Социология и социальная работа",
+    area: "Почвоведение", areaName: "Факультет почвоведения",
     programs: [
-      {code:"39.03.01",name:"Социология",fullName:"Социология / Прикладная социология",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Математика",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Почвоведение",fullName:"Почвоведение",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"II",profile:"Экология (биол. науки, науки о земле)",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I–II",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Аграрная генетика",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Химия / Физика / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Высокие технологии",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"География",subj:"География",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Экология и природопользование",fullName:"Экология и природопользование",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"II",profile:"Экология",subj:"География",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I–II",profile:"География",subj:"География",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Химия / Биология / Физика / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Высокие технологии",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Геологич.", areaName: "Геологический факультет",
+    programs: [
+      {code:"—",name:"Геология",fullName:"Геология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Геология (Ломоносов, Московская открытая по геологии)",subj:"Мат./Физ./Геогр.",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Математика / Физика / Химия / География / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Математика / Физика / Химия / География / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Геогр.", areaName: "Географический факультет",
+    programs: [
+      {code:"—",name:"Науки о Земле",fullName:"География, Картография и геоинформатика, Гидрометеорология, Экология и природопользование",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"География",subj:"География",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"География",subj:"География",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Физика / Информатика / Биология",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Туризм",fullName:"Туризм",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
           {level:"I",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"Обществознание",subj:"Обществознание",who:"Победитель",right:"БВИ"},
-          {level:"I–III",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"}
+          {level:"II",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"География / История / Иностранный язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "40.00.00", areaName: "Юриспруденция",
+    area: "ФНМ", areaName: "Факультет наук о материалах",
     programs: [
-      {code:"40.03.01",name:"Юриспруденция",fullName:"Юриспруденция (очная / с углублённым изучением китайского / налогового права)",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"История / Математика / Ин. язык (по выбору)",min:75}],
+      {code:"—",name:"Химия, физика и механика материалов",fullName:"Химия, физика и механика материалов",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель",right:"БВИ"},
-          {level:"I",profile:"Обществознание / Право",subj:"Обществознание",who:"Призёр",right:"100 баллов"},
-          {level:"II",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов"},
-          {level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"}
+          {level:"I",profile:"Высокие технологии (нанотехнологии)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I–II",profile:"Математика / Химия / Физика / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}
         ]
       }
     ]
   },
   {
-    area: "41.00.00", areaName: "Политические науки и регионоведение",
+    area: "ФФМ", areaName: "Факультет фундаментальной медицины",
     programs: [
-      {code:"41.03.04",name:"Политология",fullName:"Политология / Россиеведение",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Обществозн. / Геогр.",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Лечебное дело",fullName:"Лечебное дело",form:"очная",level:"специалитет",exams:[],
         olympiads:[
-          {level:"I",profile:"История / Обществознание",subj:"Ист. / Обществозн.",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I–II",profile:"Политология",subj:"Обществознание",who:"Победитель",right:"БВИ"}
+          {level:"I",profile:"Химия (Ломоносов)",subj:"Химия",who:"Победитель",right:"100 баллов ДВИ + 100 ЕГЭ"},
+          {level:"I",profile:"Химия (СПбГУ, Всесибирская, Юные таланты, Московская, КФУ, Менделеевская, СПб олимпиада)",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"41.03.05",name:"Международные отношения",fullName:"Международные отношения",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Ин. язык / Геогр.",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[{level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель",right:"БВИ"}]
-      }
-    ]
-  },
-  {
-    area: "42.00.00", areaName: "СМИ и информационно-библиотечное дело",
-    programs: [
-      {code:"42.03.02",name:"Журналистика",fullName:"Журналистика / Международная журналистика",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Русский язык",min:75},{n:2,subject:"Лит. / Обществозн. / Ист. / Ин. язык",min:75},{n:3,subject:"Письменная работа: журналистика",min:75}],
+      {code:"—",name:"Фармация",fullName:"Фармация",form:"очная",level:"специалитет",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Обществозн. / Ист. / Ин. язык / Литература",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I",profile:"Журналистика",subj:"—",who:"Победитель, призёр",right:"БВИ"}
+          {level:"I",profile:"Химия (Ломоносов)",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ДВИ + 100 ЕГЭ"},
+          {level:"I",profile:"Химия (СПбГУ, Всесибирская, Юные таланты, Московская, КФУ, Менделеевская, СПб олимпиада)",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "43.00.00", areaName: "Сервис и туризм",
+    area: "Истфак", areaName: "Исторический факультет",
     programs: [
-      {code:"43.03.02",name:"Туризм",fullName:"Различные программы туризма",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Геогр. / Ин. язык",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"История",fullName:"История",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Ист. / Геогр. / Ин. язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"},
-          {level:"III",profile:"Ист. / Геогр. / Ин. язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}
-        ]
-      }
-    ]
-  },
-  {
-    area: "45.00.00", areaName: "Языкознание и литературоведение",
-    programs: [
-      {code:"45.03.01",name:"Филология",fullName:"Отечественная филология / Английский / Испанский / Немецкий / Французский / Классическая и др.",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Литература",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Иностранный язык (по выбору)",min:75}],
-        olympiads:[
-          {level:"I",profile:"Литература / Филология",subj:"Литература",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"Литература",subj:"Литература",who:"Победитель",right:"БВИ"},
-          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель",right:"БВИ"},
-          {level:"I–II",profile:"Ин. язык / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I",profile:"История (Высшая проба, Ломоносов, СПбГУ)",subj:"История",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"История (Покори Воробьёвы горы!)",subj:"История",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Основы рос. государственности",subj:"История",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"История (Московская, РГГУ, РАНХиГС, Турнир Ломоносова)",subj:"История",who:"Победитель → 100 ДВИ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского)",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Международные отношения (Ломоносов)",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Русский язык / Иностранный язык",subj:"Рус. яз. / Ин. яз.",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Обществознание (конкретные олимпиады)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       },
-      {code:"45.03.02",name:"Лингвистика",fullName:"Лингвистика (англ., прикладная, межкультурная и др.)",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Англ. / Ин. язык",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Литература",min:75}],
+      {code:"—",name:"История искусств",fullName:"История искусств",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель",right:"БВИ"},
-          {level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Призёр",right:"100 баллов"},
-          {level:"II",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"},
-          {level:"I–II",profile:"—",subj:"Рус. язык / Литература",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I",profile:"Искусство (Московская)",subj:"История",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I–II",profile:"История (конкретные олимпиады)",subj:"История",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Русский язык / Иностранный язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "46.00.00", areaName: "История и археология",
+    area: "Филфак", areaName: "Филологический факультет",
     programs: [
-      {code:"46.03.01",name:"История",fullName:"История России / Всеобщая история / Археология",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Обществознание",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Филология (Русский язык и литература)",fullName:"Филология — Русский язык и литература",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"История",subj:"История",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"История",subj:"История",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},
-          {level:"III",profile:"История",subj:"История",who:"Победитель, призёр",right:"100 баллов"},
-          {level:"I–III",profile:"Обществозн. / Русский язык",subj:"Обществозн. / Рус.",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I",profile:"Литература (Ломоносов, Покори Воробьёвы горы!)",subj:"Литература",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I",profile:"История",subj:"История",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Филология (Зарубежная филология)",fullName:"Филология — Зарубежная филология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Литература (Ломоносов, Покори Воробьёвы горы!)",subj:"Литература",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"}
+        ]
+      },
+      {code:"—",name:"Филология (Славянская, греч. и классич.)",fullName:"Филология — Славянская, греческая и классическая филология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Литература (Ломоносов, Покори Воробьёвы горы!)",subj:"Литература",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Фундаментальная и прикладная лингвистика",fullName:"Фундаментальная и прикладная лингвистика",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Лингвистика (ин. язык)",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Русский язык",subj:"Русский язык",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "47.00.00", areaName: "Философия, этика и религиоведение",
+    area: "Филос.", areaName: "Философский факультет",
     programs: [
-      {code:"47.03.01",name:"Философия",fullName:"Философия / Религиоведение",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Обществознание",min:75},{n:2,subject:"Ист. / Ин. язык",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Философия",fullName:"Философия",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I–II",profile:"Обществозн. / Философия / Право",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
-          {level:"I",profile:"История / Иностранный язык",subj:"Ист. / Ин. яз.",who:"Победитель",right:"БВИ"}
+          {level:"I",profile:"Философия",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Философия",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Гуманитарные и соц. науки",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Иностранный язык / Литература",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Реклама и связи с общественностью",fullName:"Реклама и связи с общественностью",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Философия",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание / Гуманитарные и соц. науки",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Иностранный язык / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"II",profile:"Искусственный интеллект (информатика)",subj:"Информатика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Культурология",fullName:"Культурология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Философия",subj:"Обществознание",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Культурология",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание / Гуманитарные и соц. науки",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Иностранный язык / Литература",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Религиоведение",fullName:"Религиоведение",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"II",profile:"Религиоведение",subj:"История",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Философия",subj:"История",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Философия",subj:"История",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"История / Обществознание / Иностранный язык / Литература / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}
         ]
       }
     ]
   },
   {
-    area: "50.00.00", areaName: "Искусствознание",
+    area: "Экономфак", areaName: "Экономический факультет",
     programs: [
-      {code:"50.03.03",name:"История искусств",fullName:"Теория и история искусств / Искусства и гуманитарные науки",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Ин. язык / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Экономика",fullName:"Экономика",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"История / Искусствознание / Искусство",subj:"История",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"История",subj:"История",who:"Победитель",right:"БВИ"}
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Математика (конкретные олимпиады)",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Экономика (Высшая проба)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Экономика (Московская, Сибириада)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I–II",profile:"Обществознание / География / Информатика / Иностранный язык / История / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Менеджмент",fullName:"Менеджмент",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Математика (конкретные олимпиады)",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Экономика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание / Информатика / Иностранный язык / История / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "51.00.00", areaName: "Культуроведение",
+    area: "Юрфак", areaName: "Юридический факультет",
     programs: [
-      {code:"51.03.01",name:"Культурология",fullName:"Культурология / Музеология",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Обществозн. / История",min:75},{n:2,subject:"Ист. / Ин. язык / Обществозн.",min:75},{n:3,subject:"Русский язык",min:75}],
+      {code:"—",name:"Юриспруденция (гос.-прав., гражд.-прав., уг.-прав.)",fullName:"Юриспруденция (государственно-правовой, гражданско-правовой, уголовно-правовой профили)",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"Обществозн. / Философия / Право",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"Обществозн.",subj:"Обществознание",who:"Победитель",right:"БВИ"}
+          {level:"I",profile:"Право (Ломоносов)",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Основы рос. государственности",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Юриспруденция (международно-правовой)",fullName:"Юриспруденция (международно-правовой профиль)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Право",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Основы рос. государственности / Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ / ЕГЭ"},
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"}
         ]
       }
     ]
   },
   {
-    area: "58.00.00", areaName: "Востоковедение и африканистика",
+    area: "Журфак", areaName: "Факультет журналистики",
     programs: [
-      {code:"58.03.01",name:"Востоковедение и африканистика",fullName:"Арабистика, иранистика, китаистика, японистика, корееведение и др.",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"История",min:75},{n:2,subject:"Русский язык",min:75},{n:3,subject:"Ин. язык (по выбору)",min:75}],
+      {code:"—",name:"Журналистика",fullName:"Журналистика",form:"очная",level:"бакалавриат",exams:[],
         olympiads:[
-          {level:"I",profile:"История",subj:"История",who:"Победитель, призёр",right:"БВИ"},
-          {level:"II",profile:"История",subj:"История",who:"Победитель → БВИ / Призёр → 100",right:"БВИ / 100"},
-          {level:"III",profile:"История",subj:"История",who:"Победитель, призёр",right:"100 баллов"},
-          {level:"I–III",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов"},
-          {level:"I–II",profile:"—",subj:"Русский язык",who:"Победитель, призёр",right:"100 баллов"}
+          {level:"I",profile:"Журналистика (Ломоносов, Покори Воробьёвы горы!)",subj:"Литература",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Литература / История / Иностранный язык (Ломоносов, Покори Воробьёвы горы!)",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Медиакоммуникации",fullName:"Медиакоммуникации",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Журналистика (Ломоносов, Покори Воробьёвы горы!)",subj:"Литература",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Литература / Обществознание / История (Ломоносов, Покори Воробьёвы горы!)",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
         ]
       }
     ]
   },
   {
-    area: "21.00.00", areaName: "Прикладная геология, горное дело",
+    area: "Психфак", areaName: "Факультет психологии",
     programs: [
-      {code:"21.03.01 / 21.03.02",name:"Нефтегазовое дело / Землеустройство",fullName:"Нефтегазовая геология / Кадастр недвижимости",form:"очная",level:"бакалавриат",
-        exams:[{n:1,subject:"Математика",min:75},{n:2,subject:"Физика / Химия / Геогр. / Инф.",min:75},{n:3,subject:"Русский язык",min:75}],
-        olympiads:[{level:"I–III",profile:"Мат. / Физика / Химия / Геогр. / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"БВИ"}]
+      {code:"—",name:"Клиническая психология",fullName:"Клиническая психология",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Психология (Ломоносов)",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Психология (Высшая проба) / Нейротехнологии",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Математика / Обществознание / Химия / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского) / Основы рос. государственности",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Психология служебной деятельности",fullName:"Психология служебной деятельности",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Психология (Ломоносов)",subj:"Биология",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Психология (Высшая проба) / Нейротехнологии",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Обществознание / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Педагогика и психология девиантного поведения",fullName:"Педагогика и психология девиантного поведения",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Психология (Ломоносов)",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Психология (Высшая проба)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Обществознание (Ломоносов, Высшая проба)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского) / Основы рос. государственности",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Биология / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ИСАА", areaName: "Институт стран Азии и Африки",
+    programs: [
+      {code:"—",name:"Востоковедение и африканистика",fullName:"Востоковедение и африканистика",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"История (Ломоносов)",subj:"История",who:"Победитель",right:"БВИ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ИЯиР", areaName: "Факультет иностранных языков и регионоведения",
+    programs: [
+      {code:"—",name:"Перевод и переводоведение",fullName:"Перевод и переводоведение",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Обществознание",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Лингвистика",fullName:"Лингвистика",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Обществознание",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Культурология",fullName:"Культурология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Обществознание / Литература",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Регионоведение России",fullName:"Регионоведение России",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Зарубежное регионоведение",fullName:"Зарубежное регионоведение",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Обществознание / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "БиоИнж", areaName: "Факультет биоинженерии и биоинформатики",
+    programs: [
+      {code:"—",name:"Биоинженерия и биоинформатика",fullName:"Биоинженерия и биоинформатика",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Биология (Ломоносов, СПбГУ)",subj:"Биология",who:"Победитель",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ФФХИ", areaName: "Факультет фундаментальной физико-химической инженерии",
+    programs: [
+      {code:"—",name:"Прикладные математика и физика",fullName:"Прикладные математика и физика",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ДВИ",right:"100 баллов"},
+          {level:"II",profile:"Математика",subj:"Математика",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"I–II",profile:"Физика",subj:"Физика",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"II",profile:"Наносистемы / Инженерные науки",subj:"Физ./Хим.",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"I",profile:"Высокие технологии",subj:"Математика",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ДВИ",right:"100 баллов"},
+          {level:"I–II",profile:"Химия / Астрономия",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Фундаментальная и прикладная химия",fullName:"Фундаментальная и прикладная химия",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Химия",subj:"Химия",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ДВИ",right:"100 баллов"},
+          {level:"II",profile:"Химия",subj:"Химия",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ЕГЭ",right:"100 баллов"},
+          {level:"I–II",profile:"Физика / Наносистемы / Инженерные науки",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"},
+          {level:"I",profile:"Высокие технологии",subj:"Химия",who:"Победитель → 100 ДВИ + 100 ЕГЭ / Призёр → 100 ДВИ",right:"100 баллов"},
+          {level:"I–II",profile:"Математика / Робототехника",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВШГА", areaName: "Высшая школа гос. администрирования / аудита",
+    programs: [
+      {code:"—",name:"Бизнес-информатика",fullName:"Бизнес-информатика (ВШГА)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель",right:"100 баллов ДВИ"}
+        ]
+      },
+      {code:"—",name:"Юриспруденция (ВШГА)",fullName:"Юриспруденция (Высшая школа гос. аудита)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Обществознание / Право",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Финансовая безопасность / Гуманитарные и соц. науки / Основы рос. государственности",subj:"Обществознание",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"История",subj:"Обществознание",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"История / Политология / Философия",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"}
+        ]
+      },
+      {code:"—",name:"Экономика (ВШГА)",fullName:"Экономика (Высшая школа гос. аудита)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Экономика (конкретные олимпиады)",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"II",profile:"Экономика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–III",profile:"Финансовая грамотность",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Информатика / Обществознание",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Космос", areaName: "Факультет космических исследований",
+    programs: [
+      {code:"—",name:"Фундаментальные математика и механика",fullName:"Фундаментальные математика и механика (космический факультет)",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Астрономия (Московская, СПб астрономическая)",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Физика (Московская, Ломоносов, Покори Воробьёвы горы!, СПбГУ)",subj:"Физика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Физика (Инженерная, Физтех, Росатом)",subj:"Физика",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I",profile:"Информатика (Высшая проба, Московская, СПбГУ, Открытая по программ.)",subj:"Информатика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"I",profile:"Информатика (Всесибирская, Вузовско-акад., по информатике и программ., Открытая)",subj:"Информатика",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"II",profile:"Космонавтика / Информатика / Мех. и мат. моделирование / Робототехника (Ломоносов)",subj:"Математика / Информатика",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Политфак", areaName: "Факультет политологии",
+    programs: [
+      {code:"—",name:"Политология",fullName:"Политология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Международные отношения / Основы рос. государственности (Ломоносов)",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Политология (Высшая проба, СПбГУ)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Обществознание / Иностранный язык / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Конфликтология",fullName:"Конфликтология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Обществознание / Основы рос. государственности / Политология / Гуманитарные и соц. науки",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика / Биология",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ФГУ", areaName: "Факультет государственного управления",
+    programs: [
+      {code:"—",name:"Государственное и муниципальное управление",fullName:"Государственное и муниципальное управление",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Обществознание (Высшая проба, Покори Воробьёвы горы!, СПбГУ) / Основы рос. государственности (Ломоносов)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Менеджмент (ФГУ)",fullName:"Менеджмент (факультет гос. управления)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика / Иностранный язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Обществознание / Основы рос. государственности",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Политология (ФГУ)",fullName:"Политология (факультет гос. управления)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Обществознание / Основы рос. государственности / География / Иностранный язык / История",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВШБ", areaName: "Высшая школа бизнеса",
+    programs: [
+      {code:"—",name:"Менеджмент (ВШБ)",fullName:"Менеджмент (Высшая школа бизнеса)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика (Высшая проба, Московская, Ломоносов, Покори Воробьёвы горы!, Турнир городов)",subj:"Математика",who:"Победитель",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Математика / Основы бизнеса",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Экономика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ФМП", areaName: "Факультет мировой политики",
+    programs: [
+      {code:"—",name:"Международные отношения",fullName:"Международные отношения",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Политология / Востоковедение",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I",profile:"Международные отношения / Основы рос. государственности (Ломоносов)",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Иностранный язык / Обществознание / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "МШЭ", areaName: "Московская школа экономики",
+    programs: [
+      {code:"—",name:"Экономика (МШЭ)",fullName:"Экономика (Московская школа экономики)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Экономика (Олимпиада им. Кондратьева)",subj:"Обществознание",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Экономика",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ФГП", areaName: "Факультет глобальных процессов",
+    programs: [
+      {code:"—",name:"Международные отношения (Глоб. полит. процессы)",fullName:"Международные отношения — Глобальные политические процессы и дипломатия",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Международные отношения (Ломоносов)",subj:"История",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Политология / Основы рос. государственности",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология / Обществознание / Социология / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Международные отношения (Глоб. экономика)",fullName:"Международные отношения — Глобальная экономика и управление / Глобальная энергетика и международный бизнес",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Международные отношения (Ломоносов)",subj:"История",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Политология",subj:"История",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Иностранный язык / Обществознание / Социология / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      },
+      {code:"—",name:"Международные отношения (Международное гуман. сотрудничество)",fullName:"Международные отношения — Международное гуманитарное сотрудничество",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Международные отношения (Ломоносов)",subj:"История",who:"Победитель → БВИ / Призёр → 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"I–II",profile:"Иностранный язык / Лингвистика / Филология",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"История / Гуманитарные и соц. науки / Политология / Обществознание / Социология / География",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВССН", areaName: "Высшая школа современных социальных наук",
+    programs: [
+      {code:"—",name:"Социология",fullName:"Социология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского, Умницы и умники)",subj:"Обществознание",who:"Победитель → БВИ / Призёр → 100 ДВИ",right:"БВИ / 100"},
+          {level:"I",profile:"Социология (Высшая проба) / Основы рос. государственности",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Обществознание",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"}
+        ]
+      },
+      {code:"—",name:"Менеджмент (ВССН)",fullName:"Менеджмент (ВССН)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Гуманитарные и соц. науки",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"I–II",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Обществознание / Основы рос. государственности / Социология (Высшая проба)",subj:"Обществознание",who:"Победитель, призёр",right:"100 баллов ДВИ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВШУИ", areaName: "Высшая школа управления и инноваций",
+    programs: [
+      {code:"—",name:"Инноватика",fullName:"Инноватика",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Математика",subj:"Математика",who:"Победитель, призёр",right:"БВИ"},
+          {level:"II",profile:"Математика",subj:"Математика",who:"Победитель → БВИ / Призёр → 100 ДВИ + 100 ЕГЭ",right:"БВИ / 100"},
+          {level:"II",profile:"Автоматизация бизнес-процессов / Робототехника / Большие данные / ИИ / Нейротехнологии и др.",subj:"Математика",who:"Победитель, призёр",right:"100 баллов ДВИ + 100 ЕГЭ"},
+          {level:"I–II",profile:"Физика / Химия / Информатика",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "Биотех", areaName: "Биотехнологический факультет",
+    programs: [
+      {code:"—",name:"Биотехнология",fullName:"Биотехнология",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Биология",subj:"Биология",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"Химия / Математика / Русский язык",subj:"соотв. предмет",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Нанотехнология",subj:"Химия",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВШТ", areaName: "Высшая школа телевидения",
+    programs: [
+      {code:"—",name:"Телевидение",fullName:"Телевидение",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I–II",profile:"Литература (Ломоносов, Покори Воробьёвы горы!, Турнир Ломоносова, Высшая проба, СПбГУ)",subj:"Литература",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I–II",profile:"История (Ломоносов, Высшая проба, Покори Воробьёвы горы!, Московская, Турнир Ломоносова)",subj:"История",who:"Победитель, призёр",right:"100 баллов ЕГЭ"},
+          {level:"I",profile:"Гуманитарные и соц. науки (Вернадского)",subj:"История",who:"Победитель, призёр",right:"100 баллов ЕГЭ"}
+        ]
+      }
+    ]
+  },
+  {
+    area: "ВШП", areaName: "Высшая школа перевода",
+    programs: [
+      {code:"—",name:"Перевод и переводоведение (ВШП)",fullName:"Перевод и переводоведение (Высшая школа перевода)",form:"очная",level:"специалитет",exams:[],
+        olympiads:[
+          {level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Иностранный язык (КФУ, РГГУ)",subj:"Ин. язык",who:"Победитель",right:"100 баллов ДВИ"}
+        ]
+      },
+      {code:"—",name:"Лингвистика (ВШП)",fullName:"Лингвистика (Высшая школа перевода)",form:"очная",level:"бакалавриат",exams:[],
+        olympiads:[
+          {level:"I",profile:"Иностранный язык",subj:"Ин. язык",who:"Победитель, призёр",right:"100 баллов ДВИ"},
+          {level:"II",profile:"Иностранный язык (КФУ, РГГУ)",subj:"Ин. язык",who:"Победитель",right:"100 баллов ДВИ"}
+        ]
       }
     ]
   }
 ];
 
-let openSections = new Set(DATA.map(d => d.area));
+// University state
+let currentUni = 'spbgu';
+const UNIS = {
+  spbgu: { data: DATA_SPBGU, title: 'поступление в спбгу<br>по олимпиадам 2025', desc: 'Полный справочник олимпиад и особых прав. Результаты за 2020/21 – 2024/25 уч. годы (10–11 класс).' },
+  mgu: { data: DATA_MGU, title: 'поступление в мгу<br>по олимпиадам 2025', desc: 'Особые права победителям и призёрам олимпиад школьников, поступающим в МГУ им. М.В.Ломоносова в 2025 году.' }
+};
+
+function getData() { return UNIS[currentUni].data; }
+
+let openSections = new Set(getData().map(d => d.area));
 let openPrograms = new Set();
 
 function getLvlClass(l) {
@@ -1114,6 +1558,7 @@ function matchFilters(prog) {
 function render() {
   const q = document.getElementById('search').value;
   const el = document.getElementById('content');
+  const DATA = getData();
   let total = 0, bviCount = 0;
   let html = '';
 
@@ -1137,23 +1582,24 @@ function render() {
       progs.forEach((p, i) => {
         const pk = area.area + '-' + i;
         const po = openPrograms.has(pk);
+        const examsHtml = p.exams.length ? p.exams.map(e => `
+              <div class="exam-row">
+                <div class="exam-num">${e.n}</div>
+                <div class="exam-subj">${e.subject}</div>
+                <div class="exam-min">${e.min ? '≥ '+e.min : '—'}</div>
+              </div>`).join('') : '<div style="color:var(--gray500);font-size:0.82rem;font-weight:600;padding:4px 0;">Смотрите на сайте вуза</div>';
         html += `<div class="prog-card">
           <div class="prog-head" onclick="togProg('${pk}')">
             <div class="prog-title">
               <div class="prog-name">${p.fullName}</div>
-              <div class="prog-code">${p.code} · ${p.name}</div>
+              <div class="prog-code">${p.code !== '—' ? p.code + ' · ' : ''}${p.name}</div>
             </div>
             <span class="prog-tag">${p.form} · ${p.level}</span>
             <span class="prog-arrow ${po?'open':''}">▼</span>
           </div>
           <div class="prog-body ${po?'open':''}">
             <div class="sub-title">Вступительные испытания</div>
-            ${p.exams.map(e => `
-              <div class="exam-row">
-                <div class="exam-num">${e.n}</div>
-                <div class="exam-subj">${e.subject}</div>
-                <div class="exam-min">${e.min ? '≥ '+e.min : '—'}</div>
-              </div>`).join('')}
+            ${examsHtml}
             <div class="sub-title" style="margin-top:16px">Олимпиады → особые права</div>
             <table class="olymp-table">
               <tr><th>Ур.</th><th>Профиль олимпиады</th><th>Предмет</th><th>Статус</th><th>Право</th></tr>
@@ -1207,6 +1653,24 @@ function togProg(k) {
   render();
 }
 
+function switchUni(uni) {
+  currentUni = uni;
+  document.querySelectorAll('.uni-btn').forEach(b => b.classList.toggle('active', b.dataset.uni === uni));
+  document.getElementById('heroTitle').innerHTML = UNIS[uni].title;
+  document.getElementById('heroDesc').textContent = UNIS[uni].desc;
+  openSections = new Set(getData().map(d => d.area));
+  openPrograms = new Set();
+  document.getElementById('search').value = '';
+  document.getElementById('filterRight').value = 'all';
+  document.getElementById('filterLevel').value = 'all';
+  document.getElementById('toggleAll').textContent = 'свернуть всё ↓';
+  render();
+}
+
+document.querySelectorAll('.uni-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchUni(btn.dataset.uni));
+});
+
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('filterRight').addEventListener('change', render);
 document.getElementById('filterLevel').addEventListener('change', render);
@@ -1216,7 +1680,7 @@ document.getElementById('toggleAll').addEventListener('click', () => {
     openSections.clear(); openPrograms.clear();
     btn.textContent = 'развернуть всё ↑';
   } else {
-    DATA.forEach(d => openSections.add(d.area));
+    getData().forEach(d => openSections.add(d.area));
     btn.textContent = 'свернуть всё ↓';
   }
   render();
